@@ -33,10 +33,8 @@ public class xlWork {
 		
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
-        // Find the search input element by its ID
         WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("acSearch-input"))));
         
-        // Enter the search query
         searchInput.sendKeys(user_input);
         
         WebElement searchButton =  wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("acSubmitSearch"))));
@@ -52,11 +50,9 @@ public class xlWork {
 //        System.out.println("Here is the temp-price print : "+ temp_price.getText());
 	
 
-        // Create a new workbook and sheet
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Products");
 
-        // Create a row and add cells with headers
         Row headerRow = sheet.createRow(0);
         Cell headerCell1 = headerRow.createCell(0);
         headerCell1.setCellValue("Type");
@@ -64,7 +60,6 @@ public class xlWork {
         Cell headerCell2 = headerRow.createCell(1);
         headerCell2.setCellValue("Price");
 
-        // Optionally, you can add some sample data
         for(int i = 0 ; i < list_of_names.size() ; i++) {
         	Row row = sheet.createRow(i+1);
             row.createCell(0).setCellValue(list_of_names.get(i).getText());
